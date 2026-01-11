@@ -4,7 +4,6 @@ Docstring for streamlittalk.pages.dataframes_and_plots
 Streamlit has some great native ways to display dataframes interactively.
 """
 import streamlit as st
-import pandas as pd
 
 if __name__ == "__main__":
     st.title("Dataframes can be interactive")

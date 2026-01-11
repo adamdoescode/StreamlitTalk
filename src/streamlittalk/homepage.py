@@ -11,4 +11,5 @@ FILE_DIR = Path(__file__).parent
 
 if __name__ == "__main__":
     st.title("Streamlit is good! (for some things!)")
-    st.markdown((FILE_DIR / "homepage.md").read_text())
+    # keeping markdown text in a .py is messy, so we keep snippets elsewhere and read them in
+    st.markdown((FILE_DIR / "markdown_snippets" / "homepage.md").read_text())
