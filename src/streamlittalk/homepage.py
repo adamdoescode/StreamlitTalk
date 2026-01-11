@@ -1,4 +1,14 @@
+"""
+Access point for the streamlit app we will use to present
+the talk.
+"""
 
+from pathlib import Path
 import streamlit as st
 
-st.title("Streamlit is good! (for some things!)")
+
+FILE_DIR = Path(__file__).parent
+
+if __name__ == "__main__":
+    st.title("Streamlit is good! (for some things!)")
+    st.markdown((FILE_DIR / "homepage.md").read_text())
