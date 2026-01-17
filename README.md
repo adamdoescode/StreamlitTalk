@@ -1,5 +1,9 @@
 # Streamlit is good! (for some things!)
 
+## Talk Blurb
+
+Join Adam as he attempts to explain what Streamlit is while using an ill-advised re-invention of Powerpoint in... Streamlit, actually. Learn why Streamlit is pretty good for the *right* things, how you can make a web form with a pandas dataframe, discover that interactive maps are really easy (but also hard), why you should NEVER use `st.rerun()`, and why using Python to write a highly constrained Typescript webapp is bad for maintainability.
+
 ## Quick notes
 
 - Use `uv` for my env here
@@ -32,3 +36,7 @@
     - `st.session_state`
 
 - [Prettymap](https://github.com/marceloprates/prettymaps)
+
+## About Me
+
+Adam is an air quality data scientist with Environmental Technologies and Analytics. He uses Python for fun and profit and has a Graduate Diploma in Biostatistics. His credentials for discussing streamlit come from the trial-by-fire search for the holy grail of "user uptake" by his coworkers. He is still not sure what Spas have to do with Apps and Components but he would absolutely download a Spa if he could. In a past life he was a research biologist and science communicator. He remains a committed bird nerd and maintains a neobrutalist website at https://adamdoescode.github.io/.
