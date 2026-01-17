@@ -8,6 +8,12 @@ Join Adam as he attempts to explain what Streamlit is while using an ill-advised
 
 - Use `uv` for my env here
 
+## TODO
+
+- [ ] add pre-commit for consistent ruff formatting checks
+- [ ] dataframe example:
+  - [ ] it would be *funny* if the interactive dataframe changed results in a timeseries
+
 ### How?
 
 - We should do a presentation in streamlit!

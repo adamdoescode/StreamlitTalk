@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "dash>=3.3.0",
+    "pre-commit>=4.5.1",
     "ruff>=0.14.11",
     "streamlit>=1.52.2",
     "watchdog>=6.0.0",
