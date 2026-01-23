@@ -18,9 +18,34 @@ uv run streamlit run src/streamlittalk/homepage.py
 
 ## TODO
 
-- [ ] add pre-commit for consistent ruff formatting checks
+- [x] add pre-commit for consistent ruff formatting checks
+- [ ] page ordering config in streamlit? I would like to fix this up for the sidebar.
+- [ ] things I like about streamlit:
+  - Add this to the intro slides I think
+  - [ ] ease of install
+  - [ ] ease of use
+  - [ ] very short development loop
+  - [ ] LLMs like streamlit (double edged sword)
+  - [ ] Looks *nice enough* by default
 - [ ] dataframe example:
-  - [ ] it would be *funny* if the interactive dataframe changed results in a timeseries
+  - [x] it would be *funny* if the interactive dataframe changed results in a timeseries
+    - Oh lol I did this. It's pretty good actually.
+  - [ ] dataframe as a web-form!
+- [ ] deployment:
+  - [ ] try using the free streamlit deploy service
+  - [ ] maybe a slide on this? Describing my experience and opinion on it would be nice.
+  - Keep in mind there's no guarantee of web access for the talk
+- [ ] how normal forms work
+  - [ ] I think we can just straight up use prettymap for this since it looks fantastic
+  - EXCEPT: talk is local only, which may complicate matters
+- [ ] how pages work (since its simple and neat)
+- [ ] cursed reinvention of powerpoint slides:
+  - We can use these slides to cover the concept of *state* here
+  - Since refreshing the contents on the page requires use of state we can explain it while on these slides
+- [ ] Under the hood:
+  - Let's spend some time understanding the implementation
+  - I know its translating python to typescript, but that's about all I know at this point.
+  - [ ] explore this
 
 ### How?
 
