@@ -4,9 +4,17 @@
 
 Join Adam as he attempts to explain what Streamlit is while using an ill-advised re-invention of Powerpoint in... Streamlit, actually. Learn why Streamlit is pretty good for the *right* things, how you can make a web form with a pandas dataframe, discover that interactive maps are really easy (but also hard), why you should NEVER use `st.rerun()`, and why using Python to write a highly constrained Typescript webapp is bad for maintainability.
 
-## Quick notes
+## How to run
 
-- Use `uv` for my env here
+1. Install uv [from here](https://docs.astral.sh/uv/getting-started/installation/).
+2. Setup uv env:  
+```bash
+uv sync
+```
+3. Start the streamlit app:  
+```bash
+uv run streamlit run src/streamlittalk/homepage.py
+```
 
 ## TODO
 
