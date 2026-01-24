@@ -19,8 +19,11 @@ uv run streamlit run src/streamlittalk/homepage.py
 ## TODO
 
 - [x] add pre-commit for consistent ruff formatting checks
-- [ ] page ordering config in streamlit? I would like to fix this up for the sidebar.
+- [x] page ordering config in streamlit? I would like to fix this up for the sidebar.
   - [page docs](https://docs.streamlit.io/develop/concepts/multipage-apps/page-and-navigation)
+  - this ended up being a bit of a journey
+  - I think this deserves its own section for me to gripe about!
+  - [ ] page on pages in streamlit
 - [ ] things I like about streamlit:
   - Add this to the intro slides I think
   - [ ] ease of install

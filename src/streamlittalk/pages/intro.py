@@ -18,7 +18,7 @@ def read_file(filename: str | Path = FILE_DIR) -> str:
 
 
 if __name__ == "__main__":
-    """Runs if we open this page in the streamlit server"""
+    # Runs if we open this page in the streamlit server
     # st.title makes a title. Has some other arguments btw.
     st.title("Introduction")
     # st.expander creates a nice little expander for our content.
@@ -39,6 +39,9 @@ if __name__ == "__main__":
     with st.expander("Why tho?"):
         st.markdown("# Why tho?")
         # this must be relative to where we call streamlit run from
+        # streamlit can't handle markdown linked images so we have
+        # to have that line seperately. Ofc this breaks up the flow
+        # of our markdown snippets...
         st.image(image="media/ytho.jpg", width=300)
         st.markdown((SNIPPETS_DIR / "intro_2.md").read_text())
 
