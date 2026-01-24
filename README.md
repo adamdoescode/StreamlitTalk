@@ -20,6 +20,7 @@ uv run streamlit run src/streamlittalk/homepage.py
 
 - [x] add pre-commit for consistent ruff formatting checks
 - [ ] page ordering config in streamlit? I would like to fix this up for the sidebar.
+  - [page docs](https://docs.streamlit.io/develop/concepts/multipage-apps/page-and-navigation)
 - [ ] things I like about streamlit:
   - Add this to the intro slides I think
   - [ ] ease of install
@@ -32,7 +33,9 @@ uv run streamlit run src/streamlittalk/homepage.py
     - Oh lol I did this. It's pretty good actually.
   - [ ] dataframe as a web-form!
 - [ ] deployment:
-  - [ ] try using the free streamlit deploy service
+  - [x] try using the free streamlit deploy service
+  - Got this working BUT did have to use python 3.13.
+  - This required two commits because I am still learing the basics of `uv`.
   - [ ] maybe a slide on this? Describing my experience and opinion on it would be nice.
   - Keep in mind there's no guarantee of web access for the talk
 - [ ] how normal forms work
