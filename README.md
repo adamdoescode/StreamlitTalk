@@ -23,7 +23,7 @@ uv run streamlit run src/streamlittalk/homepage.py
   - [page docs](https://docs.streamlit.io/develop/concepts/multipage-apps/page-and-navigation)
   - this ended up being a bit of a journey
   - I think this deserves its own section for me to gripe about!
-  - [ ] page on pages in streamlit
+  - [x] page on pages in streamlit
 - [ ] things I like about streamlit:
   - Add this to the intro slides I think
   - [ ] ease of install
@@ -31,6 +31,9 @@ uv run streamlit run src/streamlittalk/homepage.py
   - [ ] very short development loop
   - [ ] LLMs like streamlit (double edged sword)
   - [ ] Looks *nice enough* by default
+- [ ] things I dislike about streamlit:
+  - [ ] multiline comments get printed! Awful!
+    - this is because they are just strings and streamlit defaults to burping them out.
 - [ ] dataframe example:
   - [x] it would be *funny* if the interactive dataframe changed results in a timeseries
     - Oh lol I did this. It's pretty good actually.

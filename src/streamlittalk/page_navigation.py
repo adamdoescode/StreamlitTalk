@@ -17,6 +17,7 @@ page_list: list[StreamlitPage] = [
     st.Page(
         page="./pages/dataframes_and_plots.py", title="Dataframes and plots", icon="🍴"
     ),
+    st.Page(page="./pages/streamlit_pages.py", title="Multi-page apps", icon="🗒️"),
     st.Page(page="./pages/maps.py", title="Maps", icon="🗺️"),
     st.Page(page="./pages/state_and_caching.py", title="State and caching", icon="🇦🇺"),
 ]
