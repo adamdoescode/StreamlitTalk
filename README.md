@@ -18,10 +18,6 @@ uv run streamlit run src/streamlittalk/homepage.py
 
 ## TODO
 
-- [ ] dataframe example:
-  - [x] it would be *funny* if the interactive dataframe changed results in a timeseries
-    - Oh lol I did this. It's pretty good actually.
-  - [ ] dataframe as a web-form!
 - [ ] deployment:
   - [x] try using the free streamlit deploy service
   - Got this working BUT did have to use python 3.13.
@@ -31,6 +27,7 @@ uv run streamlit run src/streamlittalk/homepage.py
 - [ ] how normal forms work
   - [ ] I think we can just straight up use prettymap for this since it looks fantastic
   - EXCEPT: talk is local only, which may complicate matters
+- [ ] `st.rerun` is bad (most of the time)
 - [ ] cursed reinvention of powerpoint slides:
   - We can use these slides to cover the concept of *state* here
   - Since refreshing the contents on the page requires use of state we can explain it while on these slides
@@ -41,6 +38,13 @@ uv run streamlit run src/streamlittalk/homepage.py
 
 ## TODONE
 
+- [x] dataframe example:
+  - [x] it would be *funny* if the interactive dataframe changed results in a timeseries
+    - Oh lol I did this. It's pretty good actually.
+  - [x] dataframe as a web-form!
+    - web-form for what content tho?
+    - I'll do a simple text injection for now
+    - done, uninspired but illustrative.
 - [x] add pre-commit for consistent ruff formatting checks
 - [x] how pages work (since its simple and neat)
   - hahahah yeah, simple and neat if you use the basic `pages` dir. A bit more of a headache when doing it via config. But still, the result is quite nice once you can avoid the footguns!

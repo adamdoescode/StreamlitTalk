@@ -8,7 +8,6 @@ from pathlib import Path
 
 import pandas as pd
 import streamlit as st
-from streamlit.delta_generator import DeltaGenerator
 
 FILE_DIR = Path(__file__)
 
@@ -20,40 +19,57 @@ pm25_data = (
 )
 
 
-def static_dataframe() -> DeltaGenerator:
-    """
-    Extremely simple, nothing to screw up here.
-    Not sure what a `DeltaGenerator` is but it lets us
-    modify this "static" dataframe for some reason 🤷‍♀️
-    """
-    return st.dataframe(data=pm25_data)
-
-
-def interactive_dataframe() -> pd.DataFrame:
-    """
-    Interactive dataframe, modifying this returns a new
-    dataframe with the updated state.
-    """
-    return st.data_editor(
-        data=pm25_data,
+# read in markdown snippets and split by a known seperator `---`
+markdown_content = {
+    page: content
+    for page, content in enumerate(
+        (FILE_DIR.parents[1] / "markdown_snippets" / "dataframes.md")
+        .read_text()
+        .split("---")
     )
-
-
-INTERACTIVE_NOTES = """- We can modify the values in this and impact the graph below...
-- this works because React will trigger a *rerun* each time we modify the dataframe."""
+}
 
 if __name__ == "__main__":
     st.title("Dataframes can be interactive")
 
-    with st.expander(label="## Static dataframes"):
+    with st.expander(label="## Static dataframes", expanded=True):
         st.markdown("## Static dataframes")
-        static_dataframe()
+        st.markdown("- static dataframes use `st.dataframe`")
+        st.markdown("- the below uses this:")
+        st.code("static_df = st.dataframe(data=pm25_data)")
+        static_df = st.dataframe(data=pm25_data)
 
     with st.expander(label="Interactive dataframes"):
         st.markdown("## *Interactive* dataframes")
-        st.markdown(INTERACTIVE_NOTES)
-        modified_df = interactive_dataframe()
+        st.markdown(markdown_content[0])
+        modified_df: pd.DataFrame = st.data_editor(
+            data=pm25_data,
+        )
         """
         A modification is best illustrated with a graph...
         """
         st.line_chart(modified_df)
+
+    with st.expander(label="Dataframe as a form?!"):
+        st.markdown(markdown_content.get(1, "AAHHHHHH NO CONTENT"))
+        table_form = pd.DataFrame(
+            {
+                "Favourite Animal": ["Turtle"],
+                "Best Emoji": ["🐢"],
+                "Your Name": ["Sir Turtlemas"],
+                "Pronoun": ["They"],
+            },
+            index=pd.Series(["Answers"]),
+        )
+
+        table_form = st.data_editor(data=table_form)
+        table_dict = table_form.to_dict(orient="list")
+
+        st.markdown("### Result")
+        st.markdown(
+            "##### "
+            f":blue[{table_dict.get('Your Name', 'MISSING')[0]}]'s favourite animal is a "
+            f":red[{table_dict.get('Favourite Animal', 'MISSING')[0]}]. "
+            f":green[{table_dict.get('Pronoun', 'MISSING')[0]}] like the "
+            f"{table_dict.get('Best Emoji', 'MISSING')[0]} emoji."
+        )
