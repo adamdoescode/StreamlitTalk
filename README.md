@@ -25,15 +25,15 @@ uv run streamlit run src/streamlittalk/homepage.py
   - I think this deserves its own section for me to gripe about!
   - [x] page on pages in streamlit
 - [x] consolidate intro mds into a single md file using `---` to split
-- [ ] things I like about streamlit:
+- [x] things I like about streamlit:
   - Add this to the intro slides I think
-  - [ ] ease of install
-  - [ ] ease of use
-  - [ ] very short development loop
-  - [ ] LLMs like streamlit (double edged sword)
-  - [ ] Looks *nice enough* by default
-- [ ] things I dislike about streamlit:
-  - [ ] multiline comments get printed! Awful!
+  - [x] ease of install
+  - [x] ease of use
+  - [x] very short development loop
+  - [x] LLMs like streamlit (double edged sword)
+  - [x] Looks *nice enough* by default
+- [x] things I dislike about streamlit:
+  - [x] multiline comments get printed! Awful!
     - this is because they are just strings and streamlit defaults to burping them out.
 - [ ] dataframe example:
   - [x] it would be *funny* if the interactive dataframe changed results in a timeseries

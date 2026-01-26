@@ -10,6 +10,7 @@ FILE_DIR = Path(__file__)
 # and i put the markdown chunks in this folder...
 SNIPPETS_DIR = FILE_DIR.parents[1] / "markdown_snippets"
 
+# read in markdown snippets and split by a known seperator `---`
 markdown_content = {
     page: content
     for page, content in enumerate(
@@ -27,7 +28,7 @@ if __name__ == "__main__":
         # st.markdown supports markdown formatted text - very neat.
         st.markdown(markdown_content.get(0, "No content found!"))
 
-        st.markdown("- Enough already! What does it look like??")
+        st.markdown("- Enough already! What does the code look like??")
         st.code(body=(FILE_DIR.parents[1] / "pages" / "example.py").read_text())
         # st.code prints strings formatted as code with syntax highlighting.
         st.markdown("- Here's the code for this page:")
@@ -37,11 +38,15 @@ if __name__ == "__main__":
                 line_numbers=True,
             )
     with st.expander("Why tho?"):
-        # this must be relative to where we call streamlit run from
-        # streamlit can't handle markdown linked images so we have
-        # to have that line seperately.
+        # streamlit can't handle markdown linked images so we have to have that line seperately.
         st.image(image="media/ytho.jpg", width=300)
         st.markdown(markdown_content.get(1, "No content found!"))
-
     with st.expander("Similar to..."):
         st.markdown(markdown_content.get(2, "No content found!"))
+    with st.expander("Pros"):
+        st.markdown(markdown_content.get(3, "No content found!"))
+        dummy_upload = st.file_uploader(label="Upload example widget")
+        if dummy_upload:
+            st.write(f"Uploaded: {dummy_upload.name}")
+    with st.expander("Cons"):
+        st.markdown(markdown_content.get(4, "No content found!"))

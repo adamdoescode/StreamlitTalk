@@ -25,4 +25,30 @@
 - [Textual](https://textual.textualize.io/)
   - Terminal GUI apps, with easy web app deploys (on localhost anyway).
   - Amazing, so cool. Wish I had a good excuse to use it more.
-
+---
+- Pros:
+  - easy to install and get started with.
+  - the beginner example is very simple and not scary.
+  - the offical docs are good!!
+  - **short development loop**:
+    - live updates to streamlit pages 
+    - no compiling
+    - launch time for a vanilla app is imperceptable.
+  - LLMs know about it:
+    - enough community surrounds it that you can get help from your preferred clanker.
+    - LLMs will also happily write working streamlit code, but beware the usual BS with LLMs.
+  - :green[looks] :orange[pretty] :red[nice] :blue[by default]:
+    - Approachable rounded corners out of the box (and on every box)
+    - Nice friendly forms and data drag and drops
+---
+- Cons:
+  - Using python to build typescript components means inevitably building a house of cards
+  - multiline comments get printed! Awful!
+```python
+"""
+Insane rambling comment here over multiple lines 
+will be put in your demo when you present it to your bosses
+"""
+```
+  - hidden footguns once you start doing more complex stuff
+  - there is no escape from handling state once you are in web interface world...
