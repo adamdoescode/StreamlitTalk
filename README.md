@@ -18,7 +18,32 @@ uv run streamlit run src/streamlittalk/homepage.py
 
 ## TODO
 
+- [ ] dataframe example:
+  - [x] it would be *funny* if the interactive dataframe changed results in a timeseries
+    - Oh lol I did this. It's pretty good actually.
+  - [ ] dataframe as a web-form!
+- [ ] deployment:
+  - [x] try using the free streamlit deploy service
+  - Got this working BUT did have to use python 3.13.
+  - This required two commits because I am still learing the basics of `uv`.
+  - [ ] maybe a slide on this? Describing my experience and opinion on it would be nice.
+  - Keep in mind there's no guarantee of web access for the talk
+- [ ] how normal forms work
+  - [ ] I think we can just straight up use prettymap for this since it looks fantastic
+  - EXCEPT: talk is local only, which may complicate matters
+- [ ] cursed reinvention of powerpoint slides:
+  - We can use these slides to cover the concept of *state* here
+  - Since refreshing the contents on the page requires use of state we can explain it while on these slides
+- [ ] Under the hood:
+  - Let's spend some time understanding the implementation
+  - I know its translating python to typescript, but that's about all I know at this point.
+  - [ ] explore this
+
+## TODONE
+
 - [x] add pre-commit for consistent ruff formatting checks
+- [x] how pages work (since its simple and neat)
+  - hahahah yeah, simple and neat if you use the basic `pages` dir. A bit more of a headache when doing it via config. But still, the result is quite nice once you can avoid the footguns!
 - [x] page ordering config in streamlit? I would like to fix this up for the sidebar.
   - [page docs](https://docs.streamlit.io/develop/concepts/multipage-apps/page-and-navigation)
   - this ended up being a bit of a journey
@@ -35,27 +60,7 @@ uv run streamlit run src/streamlittalk/homepage.py
 - [x] things I dislike about streamlit:
   - [x] multiline comments get printed! Awful!
     - this is because they are just strings and streamlit defaults to burping them out.
-- [ ] dataframe example:
-  - [x] it would be *funny* if the interactive dataframe changed results in a timeseries
-    - Oh lol I did this. It's pretty good actually.
-  - [ ] dataframe as a web-form!
-- [ ] deployment:
-  - [x] try using the free streamlit deploy service
-  - Got this working BUT did have to use python 3.13.
-  - This required two commits because I am still learing the basics of `uv`.
-  - [ ] maybe a slide on this? Describing my experience and opinion on it would be nice.
-  - Keep in mind there's no guarantee of web access for the talk
-- [ ] how normal forms work
-  - [ ] I think we can just straight up use prettymap for this since it looks fantastic
-  - EXCEPT: talk is local only, which may complicate matters
-- [ ] how pages work (since its simple and neat)
-- [ ] cursed reinvention of powerpoint slides:
-  - We can use these slides to cover the concept of *state* here
-  - Since refreshing the contents on the page requires use of state we can explain it while on these slides
-- [ ] Under the hood:
-  - Let's spend some time understanding the implementation
-  - I know its translating python to typescript, but that's about all I know at this point.
-  - [ ] explore this
+
 
 ### How?
 
