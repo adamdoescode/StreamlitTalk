@@ -24,6 +24,7 @@ uv run streamlit run src/streamlittalk/homepage.py
   - this ended up being a bit of a journey
   - I think this deserves its own section for me to gripe about!
   - [x] page on pages in streamlit
+- [x] consolidate intro mds into a single md file using `---` to split
 - [ ] things I like about streamlit:
   - Add this to the intro slides I think
   - [ ] ease of install
