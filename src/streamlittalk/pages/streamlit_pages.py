@@ -12,7 +12,6 @@ md_page_text = {page: content for page, content in enumerate(md_text.split("---"
 
 st.title("Multi-page apps in Streamlit")
 with st.expander("Implementing multiple pages", expanded=True):
-    # we can use .get() so that we dont get an ugly error
     st.markdown(md_page_text.get(0, "No content found!"))
 with st.expander("A Pages Directory", expanded=False):
     st.markdown(md_page_text.get(1, "No content found!"))

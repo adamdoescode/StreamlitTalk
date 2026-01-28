@@ -96,14 +96,27 @@ st.button("Reset session counter", on_click=reset_counter_state)"""
     st.button("Reset session counter", on_click=reset_counter_state)
 
 
+def on_slide_change():
+    """
+    The selectbox needs a *second* item in state
+    otherwise we are recursively modifying the slide state...
+    """
+    st.session_state.slide = slides.index(st.session_state.slide_select)
+
+
 def slideshow() -> None:
     """
     Orchestrator function for our powerpoint slides.
     """
-    markdown_content = read_markdown_content()
-    slides = list(markdown_content.keys())
     header_setup(slides=slides)
     # horizontal rule to split our header from the body
+    st.selectbox(
+        label="Page",
+        options=slides,
+        key="slide_select",
+        on_change=on_slide_change,
+        index=0,
+    )
     st.divider()
     st.markdown(markdown_content[str(st.session_state.slide)])
     if st.session_state.slide == 1:
@@ -118,5 +131,11 @@ def slideshow() -> None:
 
 if "slide" not in st.session_state:
     st.session_state["slide"] = 0
+
+markdown_content = read_markdown_content()
+slides = list(markdown_content.keys())
+
+if "slide_select" not in st.session_state:
+    st.session_state.slide_select = slides[st.session_state.slide]
 
 slideshow()

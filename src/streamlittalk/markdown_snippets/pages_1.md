@@ -1,5 +1,5 @@
 - Streamlit supports 'multipage' apps.
-- This talk is implemented in such an
+- This talk is implemented in such a multipage app.
 - There are two approaches:
   1. a `pages` directory
   2. using `st.navigation` and `st.pages`
@@ -53,15 +53,15 @@ pg.run()
 ---
 ```bash
 commit 88e7118aa7d59dc38440b0f83ca5c05d68a40389 (origin/main)
-Author: AdamG <grey.ham101@gmail.com>
+Author: AdamG <EMAIL>
 Date:   Sat Jan 24 10:43:37 2026 +0800
 
-    wrestle with page navigation setup. Turns out this has a few footguns which are not 'easy' to solve
+wrestle with page navigation setup. Turns out this has a few footguns which are not 'easy' to solve
 ```
 - While this seems simple enough, I found it rather fragile in practice.
 - Firstly how streamlit interprets your entry-point script changes compared to the `pages` directory approach:
   - It's no longer just a homepage - the content of this page *executes on every page*
-  - Adam, this is the best where you un-comment line 21(-ish) on the `entrypoint.py` script!
+  - Adam, this is the bit where you un-comment line 21(-ish) on the `entrypoint.py` script!
 - Second, the `st.Page` and `st.navigation` elements really can only be exeucted once!
   - I wanted to use the st.Page elements on two seperate scripts: `homepage.py` and `entrypoint.py`.
   - If you define this in `entrypoint.py` and then imported the `page_list` into `homepage.py` the app will double print the contents of `homepage.py` because it reinitialises the page_list and thus homepage.py! Recursion!
