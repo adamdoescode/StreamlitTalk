@@ -1,15 +1,25 @@
-## What is streamlit?
 
+## About me
+- Environmental scientist at a small air quality consultancy
+- Former medical biologist
+- I like:
+  - python (and have no formal training in it)
+  - R (and have some formal training in it)
+  - I also like birds
+---
+## What is streamlit?
 - Yet another python web app platform
 - Web apps for data scientists scared of React (me!)
 - Looks :grey[(objectively)] *nice* by default
 - Easy to install and run
 ---
+## Why tho?
 - Web stuff is confusing and scary
 - Python is nice because I already know it
 - What if I just write my web app in python?
 - Surely there will be no consequences for this.
 ---
+## Similar to...
 - Other solutions to :blue["make web dev easy for data scientists"] exist.
 - Dash
   - VERY similar use case to streamlit.
@@ -26,6 +36,7 @@
   - Terminal GUI apps, with easy web app deploys (on localhost anyway).
   - Amazing, so cool. Wish I had a good excuse to use it more.
 ---
+## Pros
 - Pros:
   - easy to install and get started with.
   - the beginner example is very simple and not scary.
@@ -41,6 +52,7 @@
     - Approachable rounded corners out of the box (and on every box)
     - Nice friendly forms and data drag and drops
 ---
+## Cons
 - Cons:
   - Using python to build typescript components means inevitably building a house of cards
   - multiline comments get printed! Awful!
