@@ -4,18 +4,17 @@
 
 - Welcome to a streamlit implementation of powerpoint slides!
 - To pull this off we need to make use of the web-app's "memory"
-  - as oppossed to just storing everything in python variables
-    - which are NOT stored between app refreshes!
-- Thus we now need to discuss the concept of **state**
+  - as oppossed to just storing everything in python variables which are **NOT** stored between app refreshes!
+- Thus we now need to discuss the concept of **state**:
 $$
 \text{state} = \text{memory (for web apps)}
 $$
-- Modern web frameworks involve modifying state instead of modifying HTML.
-- In streamlit state is stored in a special variable:
+- In streamlit state is stored in a special variable which is basically a `dict`:
 ```python
-st.session_state
+st.session_state: MutableMapping[Key, Any]
 ```
 - We'll talk a little about how session_state is implemented because its a nice dive into how to do class enum dict thingies.
+- We'll also discuss that type hint `MutableMapping[Key, Any]` later!
 ---
 1
 ## Why we need to use *state*
