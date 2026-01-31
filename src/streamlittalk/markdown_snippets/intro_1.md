@@ -8,12 +8,12 @@
   - I also like birds
 ---
 ## What is streamlit?
-- Yet another python web app platform
-- Web apps for data scientists scared of React (me!)
+- Another python web app platform
+- Web apps for data scientists without time to learn React
 - Looks :grey[(objectively)] *nice* by default
 - Easy to install and run
 ---
-## Why tho?
+## Y tho?
 - Web stuff is confusing and scary
 - Python is nice because I already know it
 - What if I just write my web app in python?
