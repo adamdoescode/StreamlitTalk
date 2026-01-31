@@ -38,7 +38,7 @@ page_list: list[StreamlitPage] = [
     # since this is the first page listed, it is treated as our homepage when we
     # start the app up.
     st.Page(page="./homepage.py", title="Start!", icon="🏡"),
-    # this is a seperate page we have to link to. It will show with this title
+    # this is a separate page we have to link to. It will show with this title
     # and icon, which is a bit nicer than just showing "intro".
     st.Page(page="./pages/intro.py", title="Introduction", icon="📖"),
 ]
@@ -62,8 +62,8 @@ wrestle with page navigation setup. Turns out this has a few footguns which are 
 - Firstly how streamlit interprets your entry-point script changes compared to the `pages` directory approach:
   - It's no longer just a homepage - the content of this page *executes on every page*
   - Adam, this is the bit where you un-comment line 21(-ish) on the `entrypoint.py` script!
-- Second, the `st.Page` and `st.navigation` elements really can only be exeucted once!
-  - I wanted to use the st.Page elements on two seperate scripts: `homepage.py` and `entrypoint.py`.
+- Second, the `st.Page` and `st.navigation` elements really can only be executed once!
+  - I wanted to use the st.Page elements on two separate scripts: `homepage.py` and `entrypoint.py`.
   - If you define this in `entrypoint.py` and then imported the `page_list` into `homepage.py` the app will double print the contents of `homepage.py` because it reinitialises the page_list and thus homepage.py! Recursion!
   - So my start page requires **three** .py scripts:
     - `page_navigation` which inits my list of `st.Page` objects

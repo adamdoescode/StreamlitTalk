@@ -16,7 +16,6 @@ markdown_content: dict[str, str] = {
     content.split("\n")[1].replace("## ", "").strip(): content
     for content in (SNIPPETS_DIR / "intro_1.md").read_text().split("---")
 }
-st.json(markdown_content)
 
 if __name__ == "__main__":
     # Runs if we open this page in the streamlit server
