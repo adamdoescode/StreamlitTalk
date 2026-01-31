@@ -29,6 +29,8 @@ if __name__ == "__main__":
         # st.markdown supports markdown formatted text - very neat.
         st.markdown(markdown_content.get("What is streamlit?", "No content found!"))
 
+        st.image(image="media/streamlit_gh.png", width=300)
+
         st.markdown("- Enough already! What does the code look like??")
         st.code(body=(FILE_DIR.parents[1] / "pages" / "example.py").read_text())
         # st.code prints strings formatted as code with syntax highlighting.
@@ -38,7 +40,7 @@ if __name__ == "__main__":
                 body=FILE_DIR.read_text(),
                 line_numbers=True,
             )
-    with st.expander("Why tho?"):
+    with st.expander("Y tho?"):
         # streamlit can't handle markdown linked images so we have to have that line seperately.
         st.image(image="media/ytho.jpg", width=300)
         st.markdown(markdown_content.get("Why tho?", "No content found!"))
