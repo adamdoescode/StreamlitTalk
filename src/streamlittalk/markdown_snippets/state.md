@@ -1,5 +1,4 @@
----
-0
+
 ## Powerpoint slides in Streamlit!
 
 - Welcome to a streamlit implementation of powerpoint slides!
@@ -15,8 +14,8 @@ st.session_state: MutableMapping[Key, Any]
 ```
 - We'll talk a little about how session_state is implemented because its a nice dive into how to do class enum dict thingies.
 - We'll also discuss that type hint `MutableMapping[Key, Any]` later!
+
 ---
-1
 ## Why we need to use *state*
 
 - A demonstration of why we want state...
@@ -26,7 +25,6 @@ st.session_state: MutableMapping[Key, Any]
 - Let's see how each behaves and walk through the code
 
 ---
-2
 ## (Screaming) Why is it stuck at 1??!
 
 - The local counter is being reset *every time* the button is clicked, so that:
@@ -36,7 +34,6 @@ st.session_state: MutableMapping[Key, Any]
 - Meanwhile, the chad `st.session_state.session_count` variable is not reset by the hidden page refresh that wipes clean our local python variables.
 
 ---
-3
 ## Session state implementation
 
 - Held in the streamlit `__init__.py` as:
@@ -52,8 +49,8 @@ class SessionStateProxy(MutableMapping[Key, Any]):
 - **Mutable** == changeable - aka we can change the key - value pairs in this.
 
 ---
-4
-## The trouble with `st.rerun` and why you should use "callbacks"
+## The trouble with `st.rerun`
+### and why you should use "callbacks"
 
 - You saw a callback just before!
 - It was this bad boi:

@@ -7,19 +7,15 @@ from pathlib import Path
 
 import streamlit as st
 
+from pages.counter_state import state_demo
 
-def read_markdown_content() -> dict[str, str]:
-    markdown_content = {}
-    for content in (
-        (Path(__file__).parents[1] / "markdown_snippets" / "state.md")
-        .read_text()
-        .split("---")
-    ):
-        slide_name = content.strip("\n").split("\n")[0]
-        markdown_content[slide_name] = "".join(
-            content.strip("\n").split("\n", maxsplit=1)[1:]
-        )
-    return markdown_content
+
+markdown_content: dict[str, str] = {
+    content.split("\n")[1].replace("## ", "").strip(): content
+    for content in (Path(__file__).parents[1] / "markdown_snippets" / "state.md")
+    .read_text()
+    .split("---")
+}
 
 
 def header_setup(slides: list[str]) -> None:
@@ -42,60 +38,6 @@ def header_setup(slides: list[str]) -> None:
             st.rerun()
 
 
-def state_demo() -> None:
-    """
-    On slide 2 we have two counter buttons,
-    1. keeps it's state in a local variable
-    2. holds it's state in st.session_state
-    """
-    st.divider()
-    st.markdown("### Local variable")
-    with st.expander("code", expanded=False):
-        st.code(
-            """local_count = 0
-if st.button("Local counter (+1)"):
-    local_count += 1
-st.write(f"Local counter: **{local_count}**")"""
-        )
-
-    # local count code
-    local_count = 0
-    if st.button("Local counter (+1)"):
-        local_count += 1
-    st.write(f"Local counter: **{local_count}**")
-
-    st.divider()
-    st.markdown("### Session state")
-    with st.expander("code", expanded=False):
-        st.code(
-            """if "session_count" not in st.session_state:
-    st.session_state.session_count = 0
-if st.button("Session counter (+1)"):
-    st.session_state.session_count += 1
-st.write(f"Session counter: **{st.session_state.session_count}**")
-
-def reset_counter_state() -> None:
-    # This is a callback function.
-    st.session_state.session_count = 0
-
-# using the `on_click` argument we can add the callback to our reset button
-st.button("Reset session counter", on_click=reset_counter_state)"""
-        )
-
-    if "session_count" not in st.session_state:
-        st.session_state.session_count = 0
-    if st.button("Session counter (+1)"):
-        st.session_state.session_count += 1
-    st.write(f"Session counter: **{st.session_state.session_count}**")
-
-    def reset_counter_state() -> None:
-        """This is a callback function."""
-        st.session_state.session_count = 0
-
-    # using the `on_click` argument we can add the callback to our reset button
-    st.button("Reset session counter", on_click=reset_counter_state)
-
-
 def on_slide_change():
     """
     The selectbox needs a *second* item in state
@@ -112,13 +54,13 @@ def slideshow() -> None:
     # horizontal rule to split our header from the body
     st.selectbox(
         label="Page",
-        options=slides,
+        # options=slides,
+        options=[i for i, _ in enumerate(slides)],
         key="slide_select",
         on_change=on_slide_change,
-        index=0,
     )
     st.divider()
-    st.markdown(markdown_content[str(st.session_state.slide)])
+    st.markdown(markdown_content[slides[st.session_state.slide]])
     if st.session_state.slide == 1:
         state_demo()
     if st.session_state.slide == 2:
@@ -129,13 +71,12 @@ def slideshow() -> None:
             st.rerun()
 
 
+slides = list(markdown_content.keys())
 if "slide" not in st.session_state:
     st.session_state["slide"] = 0
 
-markdown_content = read_markdown_content()
-slides = list(markdown_content.keys())
 
 if "slide_select" not in st.session_state:
-    st.session_state.slide_select = slides[st.session_state.slide]
+    st.session_state.slide_select = 0
 
 slideshow()
