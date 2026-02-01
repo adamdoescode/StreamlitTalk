@@ -32,14 +32,22 @@ markdown_content = {
 if __name__ == "__main__":
     st.title("Dataframes can be interactive")
 
-    with st.expander(label="## Static dataframes", expanded=True):
+    tab_labels = [
+        "## Static dataframes",
+        "Interactive dataframes",
+        "Dataframe as a form?!",
+    ]
+    tabs = st.tabs(tabs=tab_labels)
+    tab_dict = dict(zip(tab_labels, tabs))
+
+    with tab_dict["## Static dataframes"]:
         st.markdown("## Static dataframes")
         st.markdown("- static dataframes use `st.dataframe`")
         st.markdown("- the below uses this:")
         st.code("static_df = st.dataframe(data=pm25_data)")
         static_df = st.dataframe(data=pm25_data)
 
-    with st.expander(label="Interactive dataframes"):
+    with tab_dict["Interactive dataframes"]:
         st.markdown("## *Interactive* dataframes")
         st.markdown(markdown_content[0])
         modified_df: pd.DataFrame = st.data_editor(
@@ -50,7 +58,7 @@ if __name__ == "__main__":
         """
         st.line_chart(modified_df)
 
-    with st.expander(label="Dataframe as a form?!"):
+    with tab_dict["Dataframe as a form?!"]:
         st.markdown(markdown_content.get(1, "AAHHHHHH NO CONTENT"))
         table_form = pd.DataFrame(
             {

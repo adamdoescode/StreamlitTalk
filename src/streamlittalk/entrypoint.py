@@ -9,6 +9,8 @@ import page_navigation
 import streamlit as st
 from streamlit.navigation.page import StreamlitPage
 
+st.set_page_config(layout="wide")
+
 pg: StreamlitPage = st.navigation(
     pages=page_navigation.page_list,
     position="sidebar",
