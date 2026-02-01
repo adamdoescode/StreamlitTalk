@@ -5,3 +5,4 @@
 - **Gee Fernando** - for introducing me to `st.ballons` when he talked about Streamlit and embedded maps at Geogeeks
 - **Sabrina Seaver** - talk reviewer and discussion
 - *Russell Keith-Magee, Charles Turner, Bruce Cooper, BenDog* and others for conversations about Python I can't remember the details of.
+- **Simone Waite** - my infinitely patient wife who kept my baby son distracted long enough to write this talk

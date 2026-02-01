@@ -20,15 +20,10 @@ uv run streamlit run src/streamlittalk/homepage.py
 
 ## TODO
 
-- [x] make the page styling more in-line with a powerpoint
-- [x] acknowledgements!
-- [ ] in intro "Y tho" I need to:
-  - [x] what problem this solves:
-    - Simple and easy to implement web apps with a DS focus or a friendly form
-  - [ ] what problem it doesn't solve
-  - [ ] **why** is it not as good a solution as using React or TS
-    - Streamlit implements a subset of React
-    - It is not easy to access the full functionality available in React
+- [ ] maps demos:
+  - [ ] prettymaps
+  - [ ] basic map embedding tricks
+  - [ ] could consider using the wheatbelt birds stuff here!
 - [ ] it may be expedient to live demo the creation of a new page
   - I think it's enough to have a prompt for this at the end of the talk and then get some audience feedback on what to make :)
 - [ ] the async generation of resource intensive matplotlib is quite nice, find a way to demo this!
@@ -42,7 +37,6 @@ uv run streamlit run src/streamlittalk/homepage.py
 - [ ] how normal forms work
   - [ ] I think we can just straight up use prettymap for this since it looks fantastic
   - EXCEPT: talk is local only, which may complicate matters
-- [ ] `st.rerun` is bad (some of the time)
 - [ ] Under the hood:
   - Let's spend some time understanding the implementation
   - I know its translating python to typescript, but that's about all I know at this point.
@@ -50,6 +44,16 @@ uv run streamlit run src/streamlittalk/homepage.py
 
 ## TODONE
 
+- [x] make the page styling more in-line with a powerpoint
+- [x] acknowledgements!
+- [x] in intro "Y tho" I need to:
+  - [x] what problem this solves:
+    - Simple and easy to implement web apps with a DS focus or a friendly form
+  - [x] what problem it doesn't solve
+  - [x] **why** is it not as good a solution as using React or TS
+    - Streamlit implements a subset of React
+    - It is not easy to access the full functionality available in React
+- [x] `st.rerun` is bad (some of the time)
 - [x] cursed reinvention of powerpoint slides:
   - We can use these slides to cover the concept of *state* here
   - Since refreshing the contents on the page requires use of state we can explain it while on these slides
