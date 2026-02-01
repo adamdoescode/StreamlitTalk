@@ -20,7 +20,8 @@ uv run streamlit run src/streamlittalk/homepage.py
 
 ## TODO
 
-- [ ] make the page styling more in-line with a powerpoint
+- [x] make the page styling more in-line with a powerpoint
+- [ ] acknowledgements!
 - [ ] in intro "Y tho" I need to:
   - [ ] what problem this solves:
     - Simple and easy to implement web apps with a DS focus or a friendly form

@@ -21,4 +21,5 @@ page_list: list[StreamlitPage] = [
     st.Page(page="./pages/maps.py", title="Maps", icon="🗺️"),
     st.Page(page="./pages/state_and_caching.py", title="State and caching", icon="🇦🇺"),
     st.Page(page="./pages/example.py", title="Simple Example", icon="🎈"),
+    st.Page(page="./pages/credits.py", title="Credits (thanks)", icon="❤️"),
 ]
