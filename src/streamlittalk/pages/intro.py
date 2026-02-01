@@ -3,7 +3,6 @@ from pathlib import Path
 
 # this is how we import streamlit
 import streamlit as st
-
 from pages.slideshow_utils import header_setup
 
 # get the filepath, mostly this avoids broken relative paths for the streamlit server
@@ -43,6 +42,13 @@ def slideshow():
             )
     if slides[st.session_state.slide].lower() == "y tho?":
         st.image(image="media/ytho.jpg", width=300)
+    if slides[st.session_state.slide].lower() == "similar to...":
+        with st.expander("Minimal dash app code:"):
+            st.markdown(
+                (
+                    FILE_DIR.parents[1] / "markdown_snippets" / "minimal_dash_app.md"
+                ).read_text()
+            )
     if slides[st.session_state.slide].lower() == "pros":
         dummy_upload = st.file_uploader(label="Upload example widget")
         if dummy_upload:

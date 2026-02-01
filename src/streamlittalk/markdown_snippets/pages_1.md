@@ -12,16 +12,22 @@
   - I have had this work for me every time I've tried it in Streamlit
 - Cons:
   - filename is title
-  - no control over order of pages
+  - ~~no control over order of pages~~
+    - turns out you can do this to order your pages:
+```bash
+└── pages
+    ├── 1_intro.py
+    └── 2_dataframes_and_plots.py
+```
   - no easy way to make things ✨pretty✨
 
 ```bash
 src/streamlittalk/
 ├── entrypoint.py
 └── pages
+    ├── intro.py
     ├── dataframes_and_plots.py
     ├── example.py
-    ├── intro.py
     ├── maps.py
     ├── state_and_caching.py
     └── streamlit_pages.py

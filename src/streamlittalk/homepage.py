@@ -22,6 +22,6 @@ if __name__ == "__main__":
         st.markdown("#### :red[February 2026]")
     st.divider()
     """## Page Links"""
-    for page_obj in page_navigation.page_list:
+    for page_name, page_obj in page_navigation.page_list.items():
         # st.page_link lets you just pass in the page object to generate a pretty link - neat!
         st.page_link(page_obj)

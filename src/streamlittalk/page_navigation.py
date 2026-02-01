@@ -11,15 +11,23 @@ and thus homepage.py! Recursion!
 import streamlit as st
 from streamlit.navigation.page import StreamlitPage
 
-page_list: list[StreamlitPage] = [
-    st.Page(page="./homepage.py", title="Start!", icon="🏡"),
-    st.Page(page="./pages/intro.py", title="Introduction", icon="📖"),
-    st.Page(
+page_list: dict[str, StreamlitPage] = {
+    "Start!": st.Page(page="./homepage.py", title="Start!", icon="🏡"),
+    "Introduction": st.Page(page="./pages/intro.py", title="Introduction", icon="📖"),
+    "Dataframes and plots": st.Page(
         page="./pages/dataframes_and_plots.py", title="Dataframes and plots", icon="🍴"
     ),
-    st.Page(page="./pages/streamlit_pages.py", title="Multi-page apps", icon="🗒️"),
-    st.Page(page="./pages/maps.py", title="Maps", icon="🗺️"),
-    st.Page(page="./pages/state_and_caching.py", title="State and caching", icon="🇦🇺"),
-    st.Page(page="./pages/example.py", title="Simple Example", icon="🎈"),
-    st.Page(page="./pages/credits.py", title="Credits (thanks)", icon="❤️"),
-]
+    "Multi-page apps": st.Page(
+        page="./pages/streamlit_pages.py", title="Multi-page apps", icon="🗒️"
+    ),
+    "Maps": st.Page(page="./pages/maps.py", title="Maps", icon="🗺️"),
+    "State and caching": st.Page(
+        page="./pages/state_and_caching.py", title="State and caching", icon="🇦🇺"
+    ),
+    "Simple Example": st.Page(
+        page="./pages/example.py", title="Simple Example", icon="🎈"
+    ),
+    "Credits (thanks)": st.Page(
+        page="./pages/credits.py", title="Credits (thanks)", icon="❤️"
+    ),
+}
