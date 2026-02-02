@@ -5,8 +5,8 @@ Reinventing powerpoint slides in Streamlit:
 
 from pathlib import Path
 
+import numpy as np
 import streamlit as st
-
 from pages.counter_state import state_demo
 from pages.slideshow_utils import header_setup
 
@@ -30,20 +30,29 @@ def slideshow() -> None:
         options=[i for i, _ in enumerate(slides)],
         key="slide_select",
         on_change=on_slide_change,
+        format_func=lambda x: slides[x],
     )
     st.divider()
-    st.markdown(markdown_content[slides[st.session_state["state_slide"]]])
+    slide_key: str = slides[st.session_state["state_slide"]]
+    st.markdown(markdown_content[slide_key])
 
     # this approach is fragile and crude. I would like to improve it...
-    if st.session_state["state_slide"] == 1:
+    if slide_key == "Why we need to use *state*":
         state_demo()
-    if st.session_state["state_slide"] == 2:
+    if slide_key in [
+        "Powerpoint slides in Streamlit!",
+        "What is State?",
+        "(Screaming) Why is it stuck at 1??!",
+    ]:
         with st.expander("Whats in session_state right now?"):
             st.write(st.session_state)
-    if st.session_state["state_slide"] == 4:
+    if slide_key == "The trouble with `st.rerun`":
         if st.button("Try st.rerun!"):
             st.rerun()
 
+
+if "rng" not in st.session_state:
+    st.session_state["rng"] = np.random.randint(0, 100)
 
 markdown_content: dict[str, str] = {
     content.split("\n")[1].replace("## ", "").strip(): content

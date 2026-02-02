@@ -5,15 +5,21 @@
 - To pull this off we need to make use of the web-app's "memory"
   - as oppossed to just storing everything in python variables which are **NOT** stored between app refreshes!
 - Thus we now need to discuss the concept of **state**:
-$$
-\text{state} = \text{memory (for web apps)}
-$$
 - In streamlit state is stored in a special variable which is basically a `dict`:
 ```python
 st.session_state: MutableMapping[Key, Any]
 ```
-- We'll talk a little about how session_state is implemented because its a nice dive into how to do class enum dict thingies.
-- We'll also discuss that type hint `MutableMapping[Key, Any]` later!
+---
+## What is State?
+
+- Web browsers store information in three main ways:
+  1. local storage
+  2. session state
+  3. cookies 🍪
+- This web browser tab is running a *session* of this streamlit app
+  - if we opened another tab that would be a *different* session
+- `session state` is only maintained for a single session!
+- we can see this by duplicating this tab and inspecting the state...
 
 ---
 ## Why we need to use *state*

@@ -19,6 +19,14 @@ markdown_content: dict[str, str] = {
 }
 
 
+def on_slide_change():
+    """
+    The selectbox needs a *second* item in state
+    otherwise we are recursively modifying the slide state...
+    """
+    st.session_state["slide"] = st.session_state.slide_select
+
+
 def slideshow():
     # st.title makes a title.
     st.title("Introduction")
@@ -26,6 +34,14 @@ def slideshow():
     if "slide" not in st.session_state:
         st.session_state["slide"] = 0
     header_setup(n_slides=len(slides))
+    st.selectbox(
+        label="Page",
+        # options=slides,
+        options=[i for i, _ in enumerate(slides)],
+        key="slide_select",
+        on_change=on_slide_change,
+        format_func=lambda x: slides[x],
+    )
     st.divider()
 
     st.markdown(markdown_content[slides[st.session_state.slide]])
@@ -61,5 +77,8 @@ def slideshow():
                 line_numbers=True,
             )
 
+
+if "slide_select" not in st.session_state:
+    st.session_state.slide_select = 0
 
 slideshow()

@@ -20,6 +20,7 @@ uv run streamlit run src/streamlittalk/homepage.py
 
 ## TODO
 
+- [ ] improved state explainer
 - [ ] maps demos:
   - [ ] prettymaps
   - [ ] basic map embedding tricks
