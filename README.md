@@ -20,10 +20,10 @@ uv run streamlit run src/streamlittalk/homepage.py
 
 ## TODO
 
-- [ ] improved state explainer
+- [x] improved state explainer
 - [ ] maps demos:
-  - [ ] prettymaps
   - [ ] basic map embedding tricks
+  - [ ] prettymaps
   - [ ] could consider using the wheatbelt birds stuff here!
 - [ ] it may be expedient to live demo the creation of a new page
   - I think it's enough to have a prompt for this at the end of the talk and then get some audience feedback on what to make :)
