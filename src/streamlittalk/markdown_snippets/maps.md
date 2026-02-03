@@ -22,3 +22,8 @@
 
 ---
 ## Prettymapp
+
+- [Github link](https://github.com/chrieke/prettymapp)
+- [Streamlit App link](https://prettymapp.streamlit.app/)
+- An excellent example of exactly what Streamlit is good for:
+  - a simple form + image generation app
