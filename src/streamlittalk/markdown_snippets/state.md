@@ -27,7 +27,7 @@ st.session_state: MutableMapping[Key, Any]
 - A demonstration of why we want state...
 - We have two counter buttons:
   1. button whose content is stored in a local variable `local_count`
-  2. buttonw whose content is stored in `st.session_state`
+  2. button whose content is stored in `st.session_state`
 - Let's see how each behaves and walk through the code
 
 ---

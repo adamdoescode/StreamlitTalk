@@ -14,7 +14,7 @@ shape_options = {False: "circle", True: "rectangle"}
 
 def generate_prettymapp(
     address: str = "Praça Ferreira do Amaral, Macau",
-    radius: int = 1100,
+    radius: int = 500,
     rectangular: bool = False,
 ) -> None:
     aoi = get_aoi(address=address, radius=radius, rectangular=rectangular)
@@ -40,27 +40,28 @@ def prettymaps_example() -> None:
 
     if "address" not in st.session_state:
         st.session_state["address"] = "Praça Ferreira do Amaral, Macau"
-        st.session_state["radius"] = 1100
+        st.session_state["radius"] = 500
         st.session_state["rectangular"] = False
 
     with st.form("Prettymapp form"):
-        st.text_input(
+        columns: list = st.columns(spec=[1, 1])
+        columns[0].text_input(
             "Location address",
             key="address",
         )
-        st.slider(
+        columns[0].slider(
             "Radius (meter)",
             100,
-            1500,
+            1000,
             key="radius",
         )
-        st.radio(
+        columns[1].radio(
             "Map Shape",
             options=[False, True],
             key="rectangular",
             format_func=lambda key: shape_options[key],
         )
-        st.form_submit_button("Update map")
+        columns[1].form_submit_button("Update map")
 
     generate_prettymapp(
         address=st.session_state["address"],
