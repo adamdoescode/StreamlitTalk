@@ -7,13 +7,6 @@ from utils.prettymapp_example import prettymaps_example
 from utils.st_map import st_map
 
 
-def geopandas_example() -> None:
-    """
-    Could use geopandas/plotly here?
-    """
-    pass
-
-
 if __name__ == "__main__":
     # get the filepath, mostly this avoids broken relative paths for the streamlit server
     # using Pathlib means we get the handy `.read_text()` method too!
@@ -29,7 +22,7 @@ if __name__ == "__main__":
     }
 
     st.title("Maps in Streamlit")
-    tab_names = ["Explainer", "Using `st.map`", "Geopandas with form", "Prettymapp"]
+    tab_names = ["Explainer", "Using `st.map`", "Prettymapp"]
     tabs: dict[str, DeltaGenerator] = {
         tabname: tab_obj for tabname, tab_obj in zip(tab_names, st.tabs(tab_names))
     }
@@ -40,10 +33,6 @@ if __name__ == "__main__":
     with tabs["Using `st.map`"]:
         st.markdown(markdown_content["Using `st.map`"])
         st_map()
-
-    with tabs["Geopandas with form"]:
-        st.markdown(markdown_content["Roll your own with `matplotlib` and `geopandas`"])
-        geopandas_example()
 
     with tabs["Prettymapp"]:
         st.markdown(markdown_content["Prettymapp"])

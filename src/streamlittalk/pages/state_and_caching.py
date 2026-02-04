@@ -26,7 +26,6 @@ def slideshow() -> None:
     header_setup(n_slides=len(slides), session_slide_key="state_slide")
     st.selectbox(
         label="Page",
-        # options=slides,
         options=[i for i, _ in enumerate(slides)],
         key="slide_select",
         on_change=on_slide_change,

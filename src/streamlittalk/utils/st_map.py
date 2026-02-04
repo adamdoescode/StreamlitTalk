@@ -1,3 +1,4 @@
+from pathlib import Path
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -33,19 +34,22 @@ def st_map() -> None:
 
         row1 = st.columns([1, 2, 2])
         colorA = row1[0].color_picker("Team A", "#0000FF")
-        opacityA = row1[1].slider("A opacity", 20, 100, 50, label_visibility="hidden")
+        opacityA = row1[1].slider("A opacity", 20, 100, 90, label_visibility="hidden")
         sizeA = row1[2].slider(
             "A size", 50, 200, 100, step=10, label_visibility="hidden"
         )
 
         row2 = st.columns([1, 2, 2])
         colorB = row2[0].color_picker("Team B", "#FF0000")
-        opacityB = row2[1].slider("B opacity", 20, 100, 50, label_visibility="hidden")
+        opacityB = row2[1].slider("B opacity", 20, 100, 90, label_visibility="hidden")
         sizeB = row2[2].slider(
             "B size", 50, 200, 100, step=10, label_visibility="hidden"
         )
 
         st.form_submit_button("Update map")
+
+    with st.expander("Code"):
+        st.code(Path(__file__).read_text(), line_numbers=True)
 
     alphaA = int(opacityA * 255 / 100)
     alphaB = int(opacityB * 255 / 100)
@@ -55,4 +59,4 @@ def st_map() -> None:
     )
     df["size"] = np.where(df.team == "A", sizeA, sizeB)
 
-    st.map(df, size="size", color="color")
+    st.map(df, size="size", color="color", zoom=12)

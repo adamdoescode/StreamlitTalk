@@ -29,6 +29,35 @@ markdown_content = {
     )
 }
 
+
+def df_form() -> None:
+    """
+    Function for the dataframe form tab
+    """
+    st.markdown(markdown_content.get(1, "AAHHHHHH NO CONTENT"))
+    table_for_form = pd.DataFrame(
+        {
+            "Favourite Animal": ["Turtle"],
+            "Best Emoji": ["🐢"],
+            "Your Name": ["Sir Turtlemas"],
+            "Pronoun": ["They"],
+        },
+        index=pd.Series(["Answers"]),
+    )
+
+    table_for_form = st.data_editor(data=table_for_form)
+    table_dict = table_for_form.to_dict(orient="list")
+
+    st.markdown("### Result")
+    st.markdown(
+        "##### "
+        f":blue[{table_dict.get('Your Name', 'MISSING')[0]}]'s favourite animal is a "
+        f":red[{table_dict.get('Favourite Animal', 'MISSING')[0]}]. "
+        f":green[{table_dict.get('Pronoun', 'MISSING')[0]}] like the "
+        f"{table_dict.get('Best Emoji', 'MISSING')[0]} emoji."
+    )
+
+
 if __name__ == "__main__":
     st.title("Dataframes can be interactive")
 
@@ -59,25 +88,4 @@ if __name__ == "__main__":
         st.line_chart(modified_df)
 
     with tab_dict["Dataframe as a form?!"]:
-        st.markdown(markdown_content.get(1, "AAHHHHHH NO CONTENT"))
-        table_form = pd.DataFrame(
-            {
-                "Favourite Animal": ["Turtle"],
-                "Best Emoji": ["🐢"],
-                "Your Name": ["Sir Turtlemas"],
-                "Pronoun": ["They"],
-            },
-            index=pd.Series(["Answers"]),
-        )
-
-        table_form = st.data_editor(data=table_form)
-        table_dict = table_form.to_dict(orient="list")
-
-        st.markdown("### Result")
-        st.markdown(
-            "##### "
-            f":blue[{table_dict.get('Your Name', 'MISSING')[0]}]'s favourite animal is a "
-            f":red[{table_dict.get('Favourite Animal', 'MISSING')[0]}]. "
-            f":green[{table_dict.get('Pronoun', 'MISSING')[0]}] like the "
-            f"{table_dict.get('Best Emoji', 'MISSING')[0]} emoji."
-        )
+        df_form()
